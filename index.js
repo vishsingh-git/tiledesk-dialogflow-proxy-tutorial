@@ -67,8 +67,8 @@ app.post("/bot/:botid", (req, res) => {
       var msg = {
         "text": reply_text
       }
-      console.log("reached here----")
-      cbclient.tiledeskClient.sendMessage(msg, function (err) {
+      console.log("reached here----",msg)
+      cbclient.tiledeskClient.sendMessage(msg, function () {
         console.log("Message sent.");
       })
 //     }
