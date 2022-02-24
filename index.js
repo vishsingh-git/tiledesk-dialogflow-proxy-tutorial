@@ -62,15 +62,16 @@ app.post("/bot/:botid", (req, res) => {
     console.log("is fallback:", result.intent.isFallback)
     console.log("confidence:", result.intentDetectionConfidence)
     // intentDetectionConfidence
-    if(res.statusCode === 200) {
+//     if(res.statusCode === 200) {
       const reply_text = result['fulfillmentText']
       var msg = {
         "text": reply_text
       }
+      console.log("reached here----")
       cbclient.tiledeskClient.sendMessage(msg, function (err) {
         console.log("Message sent.");
       })
-    }
+//     }
   })
   .catch(function(err) {
     console.log('Error: ', err);
