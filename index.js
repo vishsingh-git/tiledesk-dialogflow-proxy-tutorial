@@ -83,9 +83,9 @@ app.post("/bot/:botid", (req, res) => {
 
 // Tutorial 2 - Advanced tutorial using 'micro language' to render buttons or images
 app.post("/microlang-bot/:botid", (req, res) => {
-  const tdclient = new TiledeskChatbotClient({APIKEY:'__APIKEY__', request: req});
+  const tdclient = new TiledeskChatbotClient({APIKEY:'__APIKEY__', request: req,APIURL: 'http://112.196.1.221:8081/'});
   const botid = req.params.botid;
-  console.log("botid:", botid)
+  console.log("botid:", botid,tdclient)
   const conversation = tdclient.supportRequest
   // immediately reply back
   res.status(200).send({"success":true});
