@@ -32,21 +32,22 @@ async function runDialogflowQuery(text, sessionId, language_code, credentials) {
 app.post("/bot/:botid", (req, res) => {
   // for cloud apis initialize like the this:
   // const tdclient = new TiledeskChatbotClient({request: req})
+//   const cbclient = new TiledeskChatbotClient(
+//     {
+//       request: req,
+//       response: res,
+//       APIKEY: '____APIKEY____'
+//     });
+//   console.log(" api key---------------->",cbclient)
+  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwww",req,res)
+  // for on-prem installations specify your endpoint like this:
   const cbclient = new TiledeskChatbotClient(
     {
       request: req,
       response: res,
-      APIKEY: '____APIKEY____'
+      APIKEY: '____APIKEY____',
+      APIURL: ''
     });
-  console.log(" api key---------------->",cbclient)
-  // for on-prem installations specify your endpoint like this:
-  // const cbclient = new TiledeskChatbotClient(
-  //   {
-  //     request: req,
-  //     response: res,
-  //     APIKEY: '____APIKEY____',
-  //     APIURL: 'YOUR ON-PREM API ENDPOINT'
-  //   });
   // const tdclient = new TiledeskChatbotClient({request: req, APIURL: 'YOUR API ENDPOINT'});
   const botid = req.params.botid;
   const conversation = cbclient.supportRequest
@@ -62,17 +63,17 @@ app.post("/bot/:botid", (req, res) => {
     console.log("is fallback:", result.intent.isFallback)
     console.log("confidence:", result.intentDetectionConfidence)
     // intentDetectionConfidence
-//     if(res.statusCode === 200) {
+     if(res.statusCode === 200) {
       const reply_text = result['fulfillmentText']
       var msg = {
         "text": reply_text
       }
       console.log("reached here----",msg)
       cbclient.tiledeskClient.sendMessage(msg)
-//       cbclient.tiledeskClient.sendMessage(msg, function () {
-//         console.log("Message sent.");
-//       })
-//     }
+       cbclient.tiledeskClient.sendMessage(msg, function () {
+         console.log("Message sent.");
+       })
+     }
   })
   .catch(function(err) {
     console.log('Error: ', err);
