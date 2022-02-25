@@ -39,7 +39,7 @@ app.post("/bot/:botid", (req, res) => {
 //       APIKEY: '____APIKEY____'
 //     });
 //   console.log(" api key---------------->",cbclient)
-  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwww",req,res)
+  
   // for on-prem installations specify your endpoint like this:
   const cbclient = new TiledeskChatbotClient(
     {
@@ -48,6 +48,7 @@ app.post("/bot/:botid", (req, res) => {
       APIKEY: '____APIKEY____',
       APIURL: ''
     });
+  console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwww",cbclient)
   // const tdclient = new TiledeskChatbotClient({request: req, APIURL: 'YOUR API ENDPOINT'});
   const botid = req.params.botid;
   const conversation = cbclient.supportRequest
