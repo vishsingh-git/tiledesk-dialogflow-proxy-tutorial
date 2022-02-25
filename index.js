@@ -46,7 +46,7 @@ app.post("/bot/:botid", (req, res) => {
       request: req,
       response: res,
       APIKEY: '____APIKEY____',
-      APIURL: ''
+      APIURL: 'http://112.196.1.221:8081/'
     });
   console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwww",cbclient)
   // const tdclient = new TiledeskChatbotClient({request: req, APIURL: 'YOUR API ENDPOINT'});
