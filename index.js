@@ -46,7 +46,7 @@ app.post("/bot/:botid", (req, res) => {
       request: req,
       response: res,
       APIKEY: '____APIKEY____',
-      APIURL: 'http://localhost:8081/api'
+      APIURL: 'https://ncchatbot.signitydemo.in/api'
     });
   console.log("wwwwwwwwwwwwwwwwwwwwwwwwwwww",cbclient)
   // const tdclient = new TiledeskChatbotClient({request: req, APIURL: 'YOUR API ENDPOINT'});
