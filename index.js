@@ -100,7 +100,7 @@ app.post("/microlang-bot/:botid", (req, res) => {
     console.log("is fallback:", result.intent.isFallback)
     console.log("confidence:", result.intentDetectionConfidence)
     // intentDetectionConfidence
-//     if(res.statusCode === 200) {
+    if(res.statusCode === 200) {
       const reply_text = result['fulfillmentText'];
     console.log("raw response------>", reply_text)
       const parsed_reply = TiledeskChatbotUtil.parseReply(reply_text);
@@ -117,7 +117,7 @@ app.post("/microlang-bot/:botid", (req, res) => {
       tdclient.sendMessage(msg, function (err) {
         console.log("Message", msg, "sent.");
       })
-//     }
+    }
   })
   .catch(function(err) {
     console.log('Error: ', err);
