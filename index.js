@@ -115,9 +115,9 @@ app.post("/microlang-bot/:botid", (req, res) => {
         "senderFullname": tdclient.botName
       }
       console.log("reply ---------------------------->",reply)
-      if(msg.substr(-5) == agent){
-        msg = msg.substr(6)
-      }
+//       if(msg.substr(-5) == agent){
+//         msg = msg.substr(6)
+//       }
       tdclient.sendMessage(msg, function (err) {
         console.log("Message", msg, "sent.");
       })
