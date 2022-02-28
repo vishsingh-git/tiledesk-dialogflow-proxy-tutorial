@@ -107,13 +107,17 @@ app.post("/microlang-bot/:botid", (req, res) => {
     console.log("response after parsing------>", parsed_reply)
       var msg = parsed_reply.message;
       // NOTE: you can also use parts of the parsed message, like this
-      // var reply = {
-      //   "text": msg.text,
-      //   "type": msg.type,
-      //   "attributes": msg.attributes,
-      //   "metadata": msg.metadata,
-      //   "senderFullname": tdclient.botName
-      // }
+      var reply = {
+        "text": msg.text,
+        "type": msg.type,
+        "attributes": msg.attributes,
+        "metadata": msg.metadata,
+        "senderFullname": tdclient.botName
+      }
+      console.log("reply ---------------------------->",reply)
+      if(msg.substr(-5) == agent){
+        msg = msg.substr(6)
+      }
       tdclient.sendMessage(msg, function (err) {
         console.log("Message", msg, "sent.");
       })
