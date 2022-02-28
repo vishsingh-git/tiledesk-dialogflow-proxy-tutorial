@@ -85,7 +85,7 @@ app.post("/bot/:botid", (req, res) => {
 app.post("/microlang-bot/:botid", (req, res) => {
   const tdclient = new TiledeskChatbotClient({APIKEY:'__APIKEY__', request: req,APIURL: 'https://ncchatbot.signitydemo.in/api'});
   const botid = req.params.botid;
-  console.log("botid:", botid,tdclient)
+  console.log("botid:", botid)
   const conversation = tdclient.supportRequest
   // immediately reply back
   res.status(200).send({"success":true});
