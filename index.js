@@ -118,7 +118,7 @@ app.post("/microlang-bot/:botid", (req, res) => {
 //       if(msg.substr(-5) == agent){
 //         msg = msg.substr(6)
 //       }
-      tdclient.sendMessage(msg, function (err) {
+      tdclient.sendMessage(msg.replace('\\agent', '\agent'), function (err) {
         console.log("Message", msg, "sent.");
       })
     }
