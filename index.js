@@ -102,7 +102,9 @@ app.post("/microlang-bot/:botid", (req, res) => {
     // intentDetectionConfidence
 //     if(res.statusCode === 200) {
       const reply_text = result['fulfillmentText'];
+    console.log("raw response------>", reply_text)
       const parsed_reply = TiledeskChatbotUtil.parseReply(reply_text);
+    console.log("response after parsing------>", parsed_reply)
       var msg = parsed_reply.message;
       // NOTE: you can also use parts of the parsed message, like this
       // var reply = {
